@@ -31,10 +31,13 @@ class AwsClient extends Sdk
          */
         $s3 = $this->createS3($this->bucketDetails);
 
-        $s3->getObject([
-            'Bucket' =>$this->bucketDetails['bucket'] ,
-            'Key' => $this->bucketDetails['key'] ,
-            'SaveAs' => $filename
+        $result = $s3->getObject([
+            'Bucket' =>$this->bucketDetails['Bucket'] ,
+            'Key' => $this->bucketDetails['Key'] ,
+
         ]);
+
+        file_put_contents($filename, $result[$this->bucketDetails['Key']]);
+
     }
 }
