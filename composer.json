@@ -1,0 +1,31 @@
+{
+    "name": "shaunhare/s3loader",
+    "description": "A tool to download a s3 file or folder and place in project .. useful for pre build activity",
+    "require": {
+        "aws/aws-sdk-php": "^3.36",
+        "vlucas/phpdotenv": "^2.4",
+        "psr/log": "^1.0"
+    },
+    "license": "MIT - see https://shaun.mit-license.org/",
+    "authors": [
+        {
+            "name": "Shaun Hare",
+            "email": "shaun@shaunhare.co.uk"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "6.*",
+        "mockery/mockery": "^0.9.9",
+        "squizlabs/php_codesniffer": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShaunHare\\S3-loader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShaunHare\\Tests\\S3-loader\\": "tests/phpunit"
+        }
+    }
+}
