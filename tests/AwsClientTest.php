@@ -31,7 +31,7 @@ class AwsClientTest extends TestCase
         $dotenv->load();
 
         $bucketDetails = ['Bucket' => 'shaun', 'Key' => 'foo'];
-        $this->awsClient = new AwsClient($bucketDetails , $config);
+        $this->awsClient = new AwsClient($bucketDetails, $config);
 
         $this->root = vfsStream::setup('dir');
     }
@@ -42,8 +42,6 @@ class AwsClientTest extends TestCase
         $this->mock->append(new Result(['foo' => 'bar']));
         $this->awsClient->storeToFileFromS3(vfsStream::url('dir').'/test.txt');
         $this->assertTrue($this->root->hasChild('test.txt'));
-        $this->assertEquals("bar" , file_get_contents(vfsStream::url('dir').'/test.txt'));
+        $this->assertEquals("bar", file_get_contents(vfsStream::url('dir').'/test.txt'));
     }
-
-    
 }

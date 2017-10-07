@@ -38,6 +38,5 @@ class AwsClient extends Sdk
         ]);
 
         file_put_contents($filename, $result[$this->bucketDetails['Key']]);
-
     }
 }

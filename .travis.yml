@@ -9,6 +9,9 @@ install:
   - composer global require "squizlabs/php_codesniffer *"
 script:
     - phpcs --standard=$(if [ -e ruleset.xml ]; then echo ruleset.xml; else echo PSR2; fi) src
+    
+after_script:
+    - php vendor/bin/coveralls
 env:
   global:
     - setup=basic
