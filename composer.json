@@ -3,9 +3,9 @@
     "description": "A tool to download a s3 file or folder and place in project .. useful for pre build activity",
     "require": {
         "aws/aws-sdk-php": "^3.36",
-        "vlucas/phpdotenv": "^2.4",
         "psr/log": "^1.0",
-        "symfony/console": "^3.3"
+        "symfony/console": "^3.3",
+        "vlucas/phpdotenv": "^2.4"
     },
     "license": "MIT - see https://shaun.mit-license.org/",
     "authors": [
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ShaunHare\\Tests\\S3-loader\\": "tests/phpunit"
+            "ShaunHare\\Tests\\S3-loader\\": "tests/"
         }
     }
 }
