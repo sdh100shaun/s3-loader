@@ -8,11 +8,11 @@
 
 namespace ShaunHare\loader;
 
+use Dotenv\Dotenv;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-
 
 class GrabCommand extends Command
 {
@@ -26,7 +26,9 @@ class GrabCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        (new Dotenv(__DIR__.'/../'))->load();
         $io->writeln("Starting S3 bucket file retrieval");
+        
 
     }
 }
