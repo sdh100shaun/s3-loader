@@ -8,7 +8,6 @@
 
 namespace ShaunHare\loader;
 
-
 use Dotenv\Dotenv;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,18 +23,21 @@ class ListCommand extends Command
     }
 
 
-   public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output)
     {
             $io = new SymfonyStyle($input, $output);
             $env = new Dotenv(__DIR__. '/../');
             $env->load();
 
-            $awsS3 = new AwsClient(['Bucket'=>$_SERVER['AWS_BUCKET'], 'Key'=>$_SERVER['AWS_KEY']], ['region'=>$_SERVER['AWS_REGION'],
-                'version'=> $_SERVER['AWS_VERSION']]);
+            $awsS3 = new AwsClient(
+                ['Bucket'=>$_SERVER['AWS_BUCKET'],
+                'Key'=>$_SERVER['AWS_KEY']],
+                ['region'=>$_SERVER['AWS_REGION'],
+                'version'=> $_SERVER['AWS_VERSION']]
+            );
             $items = $awsS3->listObjects();
-            foreach ($items as $item)
-            {
-                $io->writeln($item['Key']);
-            }
-     }
+        foreach ($items as $item) {
+            $io->writeln($item['Key']);
+        }
+    }
 }

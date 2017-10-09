@@ -28,7 +28,5 @@ class GrabCommand extends Command
 
         (new Dotenv(__DIR__.'/../'))->load();
         $io->writeln("Starting S3 bucket file retrieval");
-        
-
     }
 }
